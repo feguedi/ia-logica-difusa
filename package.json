@@ -1,0 +1,13 @@
+{
+  "name": "ia-logica-difusa",
+  "version": "1.0.0",
+  "description": "Proyecto de la materia de Inteligencia Artificial impartida por la Dra. Sandra Canchola en la Facultad de Informática de la Universidad Autónoma de Querétaro",
+  "main": "index.js",
+  "repository": "git+https://github.com/feguedi/ia-logica-difusa.git",
+  "author": "Ixe Fernández",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "create-react-app": "^3.0.1"
+  }
+}
