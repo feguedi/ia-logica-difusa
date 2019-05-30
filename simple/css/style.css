@@ -72,6 +72,17 @@ body, html {
     float: right;
 }
 
+.btn-diagnosticar {
+    right: 4%;
+    top: 0.75rem;
+    z-index: 4;
+    float: right;
+}
+
 .sintoma-nombre, .enfermedad-nombre {
     font-family: 'Roboto-Regular';
+}
+
+#enfermedades-container {
+
 }

@@ -4,29 +4,42 @@ let generalContent = $('#general-content');
 let especificoContent = $('#especifico-content');
 let resultadoContent = $('#resultados-content');
 
+const umbral = 0.7;
+let sumaMembresias = 0;
+
 $('#boton-menu-especifico').click(() => {
-    cambiarEstadoElemento(especificoContainer);
+    cambiarEstadoElemento(especificoContent);
     cambiarEstadoElemento(menu);
 });
 
 $('#boton-menu-general').click(() => {
-    cambiarEstadoElemento(generalContainer);
+    cambiarEstadoElemento(generalContent);
     cambiarEstadoElemento(menu);
 });
 
 $('#boton-diagnosticar-general').click(() => {
-
-})
+    
+});
 
 $('#boton-diagnosticar-especifico').click(() => {
+    
+});
 
-})
+$('#radio-general').click(() => {
+    cambiarEstadoElemento(menu);
+    cambiarEstadoElemento(generalContent);
+});
+
+$('#radio-especifico').click(() => {
+    cambiarEstadoElemento(menu);
+    cambiarEstadoElemento(especificoContent);
+});
 
 const main = () => {
     setTimeout(() => {
         cambiarEstadoElemento(bienvenido);
+        cambiarEstadoElemento(menu);
     }, 2000);
-    cambiarEstadoElemento(generalContent);
 
     cargarSintomas();
     cargarEnfermedades();
@@ -39,9 +52,12 @@ const cargarEnfermedades = () => {
 
     enfermedades.forEach(enfermedad => {
         let item = `
-            <div>
-
+        <label class="mt-3">
+            <input type="checkbox" name="enfermedad" class="card-input-element d-none" id="${ enfermedad.id }-checkbox">
+            <div class="card card-body d-flex flex-row justify-content-between align-items-center">
+                ${ enfermedad.nombre }
             </div>
+        </label>
         `;
     });
 }
@@ -64,7 +80,7 @@ const cargarSintomas = () => {
                 <small id="slider-general-${ sintoma.id }-int">Nunca</small>
               </div>
               <div class="slidercontainer">
-                <input id="slider-general-${ sintoma.id }" type="range" min="0" max="100" value="0" class="slider" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
+                <input id="slider-general-${ sintoma.id }" type="range" min="0" max="100" value="0" class="slider slider-general" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
               </div>
             </div>
             `;
@@ -75,7 +91,7 @@ const cargarSintomas = () => {
                 <small id="slider-especifico-${ sintoma.id }-int">Nunca</small>
               </div>
               <div class="slidercontainer">
-                <input id="slider-especifico-${ sintoma.id }" type="range" min="0" max="100" value="0" class="slider" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
+                <input id="slider-especifico-${ sintoma.id }" type="range" min="0" max="100" value="0" class="slider slider-especifico" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
               </div>
             </div>
             `;
@@ -89,13 +105,32 @@ const cargarSintomas = () => {
 
 const cambiarEstadoElemento = elm => { elm.toggleClass("elm-oculto"); }
 
-const mostrarResultados = 0;
+const evaluacionGeneral = () => {
+    let slidersSintomas = $('.slider-general');
+    let evSliders = [], resultado = [];
 
-const evaluacionEspecifica = 0;
+    [...slidersSintomas].forEach(val => {
+        evSliders.push(
+            {
+                "nombre": val.id,
+                "valor": Number(val.value / 100)
+            }
+        );
+    });
 
-const mostrarSintomas = 0;
+    enfermedades.forEach(enfermedad => {
+        sumaMembresias = 0;
+        evSliders.forEach(sintoma => {
+            sumaMembresias += Math.min(enfermedad.sintomas[sintoma], sintoma.valor);
+        })
+    });
 
-const mostrarEnfermedades = 0;
+    // sumaMembresias = 0;
+};
+
+const evaluacionEspecifica = () => {
+    
+};
 
 const actualizarSlider = idSintoma => {
     // console.log(`actualizarSlider: Cambiando los datos de ${ idSintoma.id }`);
@@ -103,15 +138,15 @@ const actualizarSlider = idSintoma => {
     let valslider = document.getElementById(`${ idSintoma.id }`).value;
     let valores = ['Nunca', 'Poco', 'Regular', 'Frecuente', 'Siempre'];
 
-    if (valslider == 0) small.innerText = valores[0];
-    if (valslider > 0 && valslider <= 33) {
-        small.innerText = valores[1];
+    if (valslider == 0) small.innerText = `${ valores[0] }`;
+    if (valslider > 9 && valslider <= 33) {
+        small.innerText = `${ Math.round(valslider / 10) } - ${ valores[1] }`;
     } else if (valslider > 33 && valslider <= 66) {
-        small.innerText = valores[2];
+        small.innerText = `${ Math.round(valslider / 10) } - ${ valores[2] }`;
     } else if (valslider > 66 && valslider <= 99) {
-        small.innerText = valores[3];
+        small.innerText = `${ Math.round(valslider / 10) } - ${ valores[3] }`;
     } else if (valslider == 100) {
-        small.innerText = valores[4];
+        small.innerText = `${ valores[4] }`;
     }
 
     // console.log(`actualizarSlider: Valor de slider ${ idSintoma.value }`)

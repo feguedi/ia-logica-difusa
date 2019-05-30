@@ -11,6 +11,8 @@
     <!-- <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'> -->
 
     <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/material-icons.css">
+    <link rel="stylesheet" href="./css/material.min.css">
     <link rel="stylesheet" href="./css/buttons-as-cards.css">
     <link rel="stylesheet" href="./css/background.css">
     <link rel="stylesheet" href="./css/slider.css">
@@ -26,27 +28,31 @@
         <div id="manual-content" class="elm-oculto"></div>
 
         <div id="menu-content" class="container elm-oculto">
-            <h1>Seleccione el diagnóstico que desea probar</h1>
-            <div class="row">
-                <div class="col col-md-4 col-lg-4 col-sm-4">
-                    <label>
-                        <input type="radio" name="tipo-diagnostico" id="radio-general" />
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">General</p>
-                            </div>
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Seleccione el diagnóstico que desea probar</h1>
+                    <div class="row">
+                        <div class="col col-md-6 col-lg-6 col-sm-6">
+                            <label class="d-flex align-items-center align-content-center">
+                                <input type="radio" name="tipo-diagnostico" id="radio-general" class="d-none" />
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text">General</p>
+                                    </div>
+                                </div>
+                            </label>
                         </div>
-                    </label>
-                </div>
-                <div class="col col-md-4 col-lg-4 col-sm-4">
-                    <label>
-                        <input type="radio" name="tipo-diagnostico" id="radio-especifico" />
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">Específico</p>
-                            </div>
+                        <div class="col col-md-6 col-lg-6 col-sm-6">
+                            <label class="d-flex align-items-center align-content-center">
+                                <input type="radio" name="tipo-diagnostico" id="radio-especifico" class="d-none" />
+                                <div class="card">
+                                    <div class="card-body">
+                                        <p class="card-text">Específico</p>
+                                    </div>
+                                </div>
+                            </label>
                         </div>
-                    </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -57,7 +63,7 @@
                     <div class="card">
                         <div class="card-body">
                             <button class="btn btn-menu" id="boton-menu-general">Menú</button>
-                            <h1>Diagnóstico general</h1>
+                            <h1 class="card-title">Diagnóstico general</h1>
                             <p class="card-text">
                                 De acuerdo a los siguientes síntomas, escoja la intensidad en una escala del 1 al 10
                             </p>
@@ -76,8 +82,8 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
-                            <button class="btn" id="boton-menu-especifico">Menú</button>
-                            <h1>Diagnóstico específico</h1>
+                            <button class="btn btn-menu" id="boton-menu-especifico">Menú</button>
+                            <h1 class="card-title">Diagnóstico específico</h1>
                             <div class="especifico-container" id="especifico-container-enfermedades">
                                 <p class="mensaje-especifico">Seleccione las enfermedades que desea evaluar:</p>
                                 <div id="enfermedades-container"></div>
@@ -129,14 +135,14 @@
                 </div>
             </div>
         </div>
-      
 
     </main>
     <!-- <script src="https://jquery.googleapis.com/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="./js/jquery.min.js"></script>
     <script src="./css/bootstrap/js/bootstrap.min.js"></script>
-    <script src="./js/sintomas.js"></script>
-    <script src="./js/enfermedades.js"></script>
+    <!-- <script src="./js/sintomas.js"></script>
+    <script src="./js/enfermedades.js"></script> -->
+    <script src="./js/datos.js"></script>
     <script src="./js/main.js" onload="main()"></script>
 </body>
 
