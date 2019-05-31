@@ -246,7 +246,7 @@ const enfermedades = [{
 const sintomas = [{
         "id": "hambre",
         "nombre": "Hambre",
-        "descripcion": "",
+        "descripcion": ""
     },
     {
         "id": "cant-alimento",
@@ -256,42 +256,42 @@ const sintomas = [{
     {
         "id": "somnolencia",
         "nombre": "Somnolencia en el día",
-        "descripcion": "",
+        "descripcion": "Se queda dormido en el día en cuanto puede hacerlo",
     },
     {
         "id": "sobrepeso",
         "nombre": "Sobrepeso",
-        "descripcion": "",
+        "descripcion": "Más del 25% del peso ideal",
     },
     {
         "id": "cansancio",
         "nombre": "Cansancio",
-        "descripcion": "",
+        "descripcion": "Fácil agotamiento, tristeza, desánimo",
     },
     {
         "id": "ejercicio",
         "nombre": "Ejercicio",
-        "descripcion": "",
+        "descripcion": "Mínimo 2 veces por semana, 1 hora",
     },
     {
         "id": "insomnio",
         "nombre": "Insomnio",
-        "descripcion": "",
+        "descripcion": "Dificultad para iniciar sueño. Sueño no constante",
     },
     {
         "id": "fa-concentracion",
         "nombre": "Falta de concentración",
-        "descripcion": "",
+        "descripcion": "Lentitud en análisis, distraído, ansiedad",
     },
     {
         "id": "dis-memoria",
         "nombre": "Disminución de la memoria",
-        "descripcion": "",
+        "descripcion": "Olvidos, dificultad para recordar, debe volver a leer lo revisado, baja retención",
     },
     {
         "id": "dis-visual",
         "nombre": "Disminución de agudeza visual",
-        "descripcion": "",
+        "descripcion": "Requiere lentes",
     },
     {
         "id": "dis-auditiva",
@@ -301,7 +301,7 @@ const sintomas = [{
     {
         "id": "dental",
         "nombre": "Daño dental",
-        "descripcion": "",
+        "descripcion": "Caries. Ruptura parcial de un diente",
     },
     {
         "id": "fracturas",
@@ -311,27 +311,27 @@ const sintomas = [{
     {
         "id": "lumbalgia",
         "nombre": "Lumbalgia, dolor de rodillas",
-        "descripcion": "",
+        "descripcion": "Sin causa aparente de dolor. Debilidad de lumbares",
     },
     {
         "id": "friolento",
         "nombre": "Friolento",
-        "descripcion": "",
+        "descripcion": "Se tarda en entrar en calor",
     },
     {
         "id": "polineuritis",
         "nombre": "Polineuritis",
-        "descripcion": "",
+        "descripcion": "Dolores, tics, sobresaltos, sensaciones de frío o de calor, o de hormigueo",
     },
     {
         "id": "cabello",
         "nombre": "Caída de cabello",
-        "descripcion": "",
+        "descripcion": "Sin importar la herencia",
     },
     {
         "id": "ap-canas",
         "nombre": "Aparición de canas",
-        "descripcion": "",
+        "descripcion": "Sin importar la herencia",
     },
     {
         "id": "ap-arrugas",

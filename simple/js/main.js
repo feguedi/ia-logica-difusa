@@ -1,11 +1,19 @@
 let bienvenido = $('#header-bienvenida');
 let menu = $('#menu-content');
+let manual = $('#manual-content');
 let generalContent = $('#general-content');
 let especificoContent = $('#especifico-content');
 let resultadoContent = $('#resultados-content');
 
-const umbral = 7;
+let enfChkd = 0;
+
+const umbral = 10;
 let sumaMembresias = 0;
+
+$('#boton-manual').click(() => {
+    cambiarEstadoElemento(manual);
+    cambiarEstadoElemento(menu);
+});
 
 $('#boton-menu-especifico').click(() => {
     cambiarEstadoElemento(especificoContent);
@@ -15,14 +23,6 @@ $('#boton-menu-especifico').click(() => {
 $('#boton-menu-general').click(() => {
     cambiarEstadoElemento(generalContent);
     cambiarEstadoElemento(menu);
-});
-
-$('#boton-diagnosticar-general').click(() => {
-    
-});
-
-$('#boton-diagnosticar-especifico').click(() => {
-    
 });
 
 $('#radio-general').click(() => {
@@ -35,10 +35,20 @@ $('#radio-especifico').click(() => {
     cambiarEstadoElemento(especificoContent);
 });
 
+// $('.enfermedad-checkbox').click(() => {
+    // $(this).click(() => {
+//         console.log(`click en ${ this.id }`);
+//         if ($(this).prop('checked')) evChkbx--;
+//         else evChkbx++;
+//         if (evChkbx > 1) $('#boton-diagnosticar-especifico').removeAttr('disabled');
+//         if (evChkbx <= 1) $('#boton-diagnosticar-especifico').attr('disabled');
+//     });
+// });
+
 const main = () => {
     setTimeout(() => {
         cambiarEstadoElemento(bienvenido);
-        cambiarEstadoElemento(menu);
+        cambiarEstadoElemento(manual);
     }, 2000);
 
     // TODO: Cargar primero el manual
@@ -50,14 +60,15 @@ const main = () => {
 
 const cargarEnfermedades = () => {
     // 
+    console.log(`cargarEnfermedades: Iniciando la carga de enfermedades`);
     let enfermedadesContainer = document.getElementById('enfermedades-container');
     let h = ``;
 
     enfermedades.forEach(enfermedad => {
-        console.log(`cargarEnfermedades: Cargando item: ${ enfermedad.nombre }`);
+        // console.log(`cargarEnfermedades: Cargando item: ${ enfermedad.nombre }`);
         let item = `
         <label class="mt-3">
-            <input type="checkbox" name="enfermedad" class="card-input-element d-none" id="${ enfermedad.id }-checkbox">
+            <input type="checkbox" name="enfermedad" class="card-input-element enfermedad-checkbox d-none" id="checkbox-${ enfermedad.id }">
             <div class="card card-body d-flex flex-row justify-content-between align-items-center">
                 ${ enfermedad.nombre }
             </div>
@@ -78,7 +89,7 @@ const cargarSintomas = () => {
     let hEspf = ``
 
     sintomas.forEach(sintoma => {
-        console.log(`cargarSintomas: Cargando síntoma: ${ sintoma.nombre }`);
+        // console.log(`cargarSintomas: Cargando síntoma: ${ sintoma.nombre }`);
         let itemGral = `
             <div class="list-group-item flex-column align-items-start">
               <div class="list-group-content-header d-flex w-100 justify-content-between align-items-center">
@@ -147,15 +158,16 @@ const evaluacionGeneral = () => {
             }
         }
         
-        resultados.forEach(el => {
-            console.log(`evaluacionGeneral: resultado: ${ el.enfermedad.id } \t ${ el.membresia }`);
-        })
+        // resultados.forEach(el => {
+        //     console.log(`evaluacionGeneral: resultado: ${ el.enfermedad.id } \t ${ el.membresia }`);
+        // })
     });
 
     console.log(`evaluacionGeneral: sumaMembresias: ${ sumaMembresias }`);
 
     let hSintomas = ``;
     resultados.forEach(res => {
+        console.log(`evaluacionGeneral: resultado: ${ res.enfermedad.id } \t ${ res.membresia }`);
         hSintomas = `
         <li>
             <h6>${ res.enfermedad.nombre }</h6>
@@ -165,38 +177,146 @@ const evaluacionGeneral = () => {
         `;
     });
 
-    if (resultados == 1) {
+    if (resultados.length == 1) {
         modalResultados.html(`
             <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
-            <p>Esta es la enfermedad que mejor cuadra con sus síntomas:</p>
+            <p style="padding-top: 2%;">Esta es la enfermedad que mejor cuadra con sus síntomas:</p>
             <ul>
                 ${ hSintomas }
             </ul>
         `);
-    } else if (resultados > 1) {
+    } else if (resultados.length > 1) {
         modalResultados.html(`
             <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
-            <p>Estas son las enfermedades que mejor cuadran con sus síntomas:</p>
+            <p style="padding-top: 2%;">Estas son las enfermedades que mejor cuadran con sus síntomas:</p>
             <ul>
                 ${ hSintomas }
             </ul>
         `);
     } else {
-        modalResultados.html(`<p>Ninguna enfermedad concuerda con sus síntomas`);
+        modalResultados.html(`<p style="padding-top: 2%;">Ninguna enfermedad concuerda con sus síntomas`);
     }
-    // sumaMembresias = 0;
+    sumaMembresias = 0;
 };
 
 const evaluacionEspecifica = () => {
     let slidersSintomas = $('.slider-especifico');
     let modalResultados = $('#modal-resultados');
-    
+    let seleccionEnfermedades = $('.enfermedad-checkbox');
+
+    let evChkbx = [], evSliders = [], resultados = [];
+
+    [...seleccionEnfermedades].forEach(sele => {
+        if(sele.checked) {
+            enfermedades.forEach(enfermedad => {
+                console.log(`evaluacionEspecifica: ${ enfermedad.nombre } | ${ sele.id }`);
+                if (enfermedad.id.slice(9) == sele.id) {
+                    evChkbx.push(enfermedad);
+                    console.log(`evaluacionEspecifica: Agregada ${ enfermedad.nombre }`);
+                    // break;
+                }
+            });
+        }
+    });
+
+    evChkbx.forEach(chkd => {
+        console.log(`evaluacionEspecifica: enfermedad ${ chkd.nombre }`);
+    });
+
+    if(evChkbx.length < 2) {
+        cambiarEstadoElemento($('#alert-minimo'));
+    }
+
+    [...slidersSintomas].forEach(val => {
+        evSliders.push({
+            "id": val.id.slice(18),
+            "valor": Number(val.value / 10)
+        });
+    });
+
+    evChkbx.forEach(enfermedad => {
+        sumaMembresias = 0;
+        evSliders.forEach(sin => {
+            sumaMembresias += Math.min(enfermedad.sintomas[sin.id], sin.valor) || 0;
+            console.log(`evaluacionEspecifica: Sintoma ${ sin.id }`);
+        });
+
+        if (sumaMembresias > umbral) {
+            if(resultados[0] && resultados[0].membresia < sumaMembresias) {
+                resultados = [{
+                    membresia: sumaMembresias,
+                    enfermedad
+                }];
+            } else if ((resultados[0] && resultados[0].membresia == sumaMembresias) || !resultados[0]) {
+                resultados.push({
+                    membresia: sumaMembresias,
+                    enfermedad
+                });
+            }
+        }
+    });
+
+    let hSintomas = ``;
+    let hEnfermedades = ``;
+
+    evChkbx.forEach(chk => {
+        hEnfermedades += `
+            <li>
+                ${ chk.nombre }
+            </li>
+        `;
+    });
+
+    resultados.forEach(res => {
+        console.log(`evaluacionEspecifica: resultado: ${ res.enfermedad.id } \t ${ res.membresia }`);
+        hSintomas += `
+            <li>
+                ${ res.sintoma.nombre }
+            </li>
+        `;
+    });
+
+    if (resultados.length == 1) {
+        modalResultados.html(`
+            <p class="card-text">Enfermedades seleccionadas:</p>
+            <ul>
+            ${ hEnfermedades }
+            </ul>
+            <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
+            <p class="card-text" style="padding-top: 2%;">Esta es la enfermedad que mejor cuadra con sus síntomas:</p>
+            <ul>
+                ${ hSintomas }
+            </ul>
+        `);
+    } else if (resultados.length > 1) {
+        modalResultados.html(`
+            <p class="card-text">Enfermedades seleccionadas:</p>
+            <ul>
+            ${ hEnfermedades }
+            </ul>
+            <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
+            <p class="card-text" style="padding-top: 2%;">Estas son las enfermedades que mejor cuadran con sus síntomas:</p>
+            <ul>
+                ${ hSintomas }
+            </ul>
+        `);
+    } else {
+        modalResultados.html(`
+            <p class="card-text">Enfermedades seleccionadas:</p>
+            <ul>
+            ${ hEnfermedades }
+            </ul>
+            <p class="card-text" style="padding-top: 2%;">Ninguna enfermedad concuerda con sus síntomas</p>`);
+    }
+
+    sumaMembresias = 0;
 };
 
 const actualizarSlider = idSintoma => {
     // console.log(`actualizarSlider: Cambiando los datos de ${ idSintoma.id }`);
     let small = document.getElementById(`${ idSintoma.id }-int`);
     let valslider = document.getElementById(`${ idSintoma.id }`).value;
+    // let valores = ['Nunca', 'Casi nunca', 'Muy raro', 'Raro', 'Moderado', 'Medio', 'Frecuente', 'Muy frecuente', 'Casi siempre', 'Siempre'];
     let valores = ['Nunca', 'Poco', 'Regular', 'Frecuente', 'Siempre'];
 
     if (valslider == 0) small.innerText = `${ valores[0] }`;

@@ -89,7 +89,6 @@ body, html {
     font-family: 'Roboto-Regular';
 }
 
-/* .especifico-container, .general-container {
-    max-height: 80%;
-    overflow-y: scroll;
-} */
+#alert-minimo {
+    z-index: 5;
+}

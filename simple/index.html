@@ -25,15 +25,32 @@
 
         <h1 id="header-bienvenida" class="">Bienvenido</h1>
 
-        <div id="manual-content" class="elm-oculto"></div>
+        <div id="manual-content" class="container elm-oculto">
+            <div class="row">
+                <div class="col">
+                    <div class="card d-flex">
+                        <div class="card-body align-content-center align-items-center">
+                            <h4 class="card-title text-center">Diagnóstico de enfermedades de trastorno alimenticio aplicando lógica
+                                difusa</h4>
+                            <p class="card-text text-center">El siguiente sistema pretende
+                                auxiliar en la integración de un diagnóstico aportando una probabilidad de certeza</p>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn btn-info" id="boton-manual">Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div id="menu-content" class="container elm-oculto">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title">Seleccione el diagnóstico que desea probar</h1>
+                    <h2 class="card-title text-center">Seleccione el diagnóstico que desea probar</h1>
                         <div class="row">
                             <div class="col col-md-6 col-lg-6 col-sm-6">
-                                <label class="d-flex align-items-center align-content-center">
+                                <!-- <label class="d-flex align-items-center align-content-center"> -->
+                                <label class="d-flex justify-content-center">
                                     <input type="radio" name="tipo-diagnostico" id="radio-general" class="d-none" />
                                     <div class="card">
                                         <div class="card-body">
@@ -43,7 +60,8 @@
                                 </label>
                             </div>
                             <div class="col col-md-6 col-lg-6 col-sm-6">
-                                <label class="d-flex align-items-center align-content-center">
+                                <!-- <label class="d-flex align-items-center align-content-center"> -->
+                                <label class="d-flex justify-content-center">
                                     <input type="radio" name="tipo-diagnostico" id="radio-especifico" class="d-none" />
                                     <div class="card">
                                         <div class="card-body">
@@ -138,6 +156,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show elm-oculto" role="alert" id="alert-minimo">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <p>Selecciona dos o más enfermedades</p>
         </div>
 
     </main>
