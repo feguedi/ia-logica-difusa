@@ -35,15 +35,15 @@ $('#radio-especifico').click(() => {
     cambiarEstadoElemento(especificoContent);
 });
 
-// $('.enfermedad-checkbox').click(() => {
+$('.enfermedad-checkbox').click(() => {
     // $(this).click(() => {
-//         console.log(`click en ${ this.id }`);
-//         if ($(this).prop('checked')) evChkbx--;
-//         else evChkbx++;
-//         if (evChkbx > 1) $('#boton-diagnosticar-especifico').removeAttr('disabled');
-//         if (evChkbx <= 1) $('#boton-diagnosticar-especifico').attr('disabled');
-//     });
-// });
+        console.log(`click en ${ this.id }`);
+        if ($(this).prop('checked')) evChkbx--;
+        else evChkbx++;
+        if (evChkbx > 1) $('#boton-diagnosticar-especifico').removeAttr('disabled');
+        if (evChkbx <= 1) $('#boton-diagnosticar-especifico').attr('disabled');
+    // });
+});
 
 const main = () => {
     setTimeout(() => {
@@ -56,6 +56,8 @@ const main = () => {
 
     cargarSintomas();
     cargarEnfermedades();
+
+    $('[data-toggle="tooltip"]').tooltip();
 }
 
 const cargarEnfermedades = () => {
@@ -97,18 +99,18 @@ const cargarSintomas = () => {
                 <small id="slider-general-${ sintoma.id }-int">Nunca</small>
               </div>
               <div class="slidercontainer">
-                <input id="slider-general-${ sintoma.id }" type="range" step="10" min="0" max="100" value="0" class="slider slider-general" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
+                <input id="slider-general-${ sintoma.id }" type="range" step="10" min="0" max="90" value="0" class="slider slider-general" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
               </div>
             </div>
             `;
         let itemEspf = `
-            <div class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="list-group-item flex-column align-items-start">
               <div class="list-group-content-header d-flex w-100 justify-content-between align-items-center">
                 <h5 class="mb-1 sintoma-nombre" data-toggle="tooltip" data-placement="bottom" title="${ sintoma.descripcion }">${ sintoma.nombre }</h5>
                 <small id="slider-especifico-${ sintoma.id }-int">Nunca</small>
               </div>
               <div class="slidercontainer">
-                <input id="slider-especifico-${ sintoma.id }" type="range" step="10" min="0" max="100" value="0" class="slider slider-especifico" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
+                <input id="slider-especifico-${ sintoma.id }" type="range" step="10" min="0" max="90" value="0" class="slider slider-especifico" onchange="actualizarSlider(this)" oninput="actualizarSlider(this)" />
               </div>
             </div>
             `;
@@ -181,7 +183,7 @@ const evaluacionGeneral = () => {
         modalResultados.html(`
             <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
             <p style="padding-top: 2%;">Esta es la enfermedad que mejor cuadra con sus síntomas:</p>
-            <ul>
+            <ul class="list-unstyled">
                 ${ hSintomas }
             </ul>
         `);
@@ -189,12 +191,12 @@ const evaluacionGeneral = () => {
         modalResultados.html(`
             <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
             <p style="padding-top: 2%;">Estas son las enfermedades que mejor cuadran con sus síntomas:</p>
-            <ul>
+            <ul class="list-unstyled">
                 ${ hSintomas }
             </ul>
         `);
     } else {
-        modalResultados.html(`<p style="padding-top: 2%;">Ninguna enfermedad concuerda con sus síntomas`);
+        modalResultados.html(`<p style="padding-top: 2%;">Ninguna enfermedad concuerda con sus síntomas</p>`);
     }
     sumaMembresias = 0;
 };
@@ -208,9 +210,10 @@ const evaluacionEspecifica = () => {
 
     [...seleccionEnfermedades].forEach(sele => {
         if(sele.checked) {
+            console.log(`evaluacionEspecifica: ${ sele.id.slice(9) } está seleccionada`);
             enfermedades.forEach(enfermedad => {
-                console.log(`evaluacionEspecifica: ${ enfermedad.nombre } | ${ sele.id }`);
-                if (enfermedad.id.slice(9) == sele.id) {
+                console.log(`evaluacionEspecifica: comparando ${ enfermedad.nombre } | ${ sele.id }`);
+                if (enfermedad.id == sele.id.slice(9)) {
                     evChkbx.push(enfermedad);
                     console.log(`evaluacionEspecifica: Agregada ${ enfermedad.nombre }`);
                     // break;
@@ -271,42 +274,43 @@ const evaluacionEspecifica = () => {
         console.log(`evaluacionEspecifica: resultado: ${ res.enfermedad.id } \t ${ res.membresia }`);
         hSintomas += `
             <li>
-                ${ res.sintoma.nombre }
+                ${ res.enfermedad.nombre }
             </li>
         `;
     });
 
     if (resultados.length == 1) {
         modalResultados.html(`
-            <p class="card-text">Enfermedades seleccionadas:</p>
-            <ul>
+            <p class="card-text" style="padding-top: 2%">Enfermedades seleccionadas:</p>
+            <ul class="list-unstyled">
             ${ hEnfermedades }
             </ul>
             <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
-            <p class="card-text" style="padding-top: 2%;">Esta es la enfermedad que mejor cuadra con sus síntomas:</p>
-            <ul>
+            <p class="card-text" style="padding-top: 1.5%;">Esta es la enfermedad que mejor cuadra con sus síntomas:</p>
+            <ul class="list-unstyled">
                 ${ hSintomas }
             </ul>
         `);
     } else if (resultados.length > 1) {
         modalResultados.html(`
-            <p class="card-text">Enfermedades seleccionadas:</p>
-            <ul>
+            <p class="card-text" style="padding-top: 2%">Enfermedades seleccionadas:</p>
+            <ul class="list-unstyled">
             ${ hEnfermedades }
             </ul>
             <!-- <h5 style="padding-top: 2%;">Sintomas</h6> -->
-            <p class="card-text" style="padding-top: 2%;">Estas son las enfermedades que mejor cuadran con sus síntomas:</p>
-            <ul>
+            <p class="card-text" style="padding-top: 1.5%;">Estas son las enfermedades que mejor cuadran con sus síntomas:</p>
+            <ul class="list-unstyled">
                 ${ hSintomas }
             </ul>
         `);
     } else {
         modalResultados.html(`
-            <p class="card-text">Enfermedades seleccionadas:</p>
-            <ul>
+            <p class="card-text" style="padding-top: 2%">Enfermedades seleccionadas:</p>
+            <ul class="list-unstyled">
             ${ hEnfermedades }
             </ul>
-            <p class="card-text" style="padding-top: 2%;">Ninguna enfermedad concuerda con sus síntomas</p>`);
+            <p class="card-text" style="padding-top: 1.5%;">Ninguna enfermedad concuerda con sus síntomas</p>
+        `);
     }
 
     sumaMembresias = 0;
@@ -316,19 +320,30 @@ const actualizarSlider = idSintoma => {
     // console.log(`actualizarSlider: Cambiando los datos de ${ idSintoma.id }`);
     let small = document.getElementById(`${ idSintoma.id }-int`);
     let valslider = document.getElementById(`${ idSintoma.id }`).value;
-    // let valores = ['Nunca', 'Casi nunca', 'Muy raro', 'Raro', 'Moderado', 'Medio', 'Frecuente', 'Muy frecuente', 'Casi siempre', 'Siempre'];
-    let valores = ['Nunca', 'Poco', 'Regular', 'Frecuente', 'Siempre'];
+    let valores = ['Nunca', 'Casi nunca', 'Muy raro', 'Raro', 'Moderado', 'Medio', 'Frecuente', 'Muy frecuente', 'Casi siempre', 'Siempre'];
+    // let valores = ['Nunca', 'Poco', 'Regular', 'Frecuente', 'Siempre'];
+
+    // if (valslider == 0) small.innerText = `${ valores[0] }`;
+    // if (valslider > 9 && valslider <= 33) {
+    //     small.innerText = `${ Math.round(valslider / 10) } - ${ valores[1] }`;
+    // } else if (valslider > 33 && valslider <= 66) {
+    //     small.innerText = `${ Math.round(valslider / 10) } - ${ valores[2] }`;
+    // } else if (valslider > 66 && valslider <= 99) {
+    //     small.innerText = `${ Math.round(valslider / 10) } - ${ valores[3] }`;
+    // } else if (valslider == 100) {
+    //     small.innerText = `${ valores[4] }`;
+    // }
 
     if (valslider == 0) small.innerText = `${ valores[0] }`;
-    if (valslider > 9 && valslider <= 33) {
-        small.innerText = `${ Math.round(valslider / 10) } - ${ valores[1] }`;
-    } else if (valslider > 33 && valslider <= 66) {
-        small.innerText = `${ Math.round(valslider / 10) } - ${ valores[2] }`;
-    } else if (valslider > 66 && valslider <= 99) {
-        small.innerText = `${ Math.round(valslider / 10) } - ${ valores[3] }`;
-    } else if (valslider == 100) {
-        small.innerText = `${ valores[4] }`;
-    }
+    if (valslider == 10) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[1] }`;
+    if (valslider == 20) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[2] }`;
+    if (valslider == 30) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[3] }`;
+    if (valslider == 40) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[4] }`;
+    if (valslider == 50) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[5] }`;
+    if (valslider == 60) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[6] }`;
+    if (valslider == 70) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[7] }`;
+    if (valslider == 80) small.innerText = `${ Math.round(valslider / 10) } - ${ valores[8] }`;
+    if (valslider == 90) small.innerText = `${ valores[9] }`;
 
     // console.log(`actualizarSlider: Valor de slider ${ idSintoma.value }`)
 }

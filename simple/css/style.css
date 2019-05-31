@@ -89,6 +89,10 @@ body, html {
     font-family: 'Roboto-Regular';
 }
 
+#manual-content {
+    height: 80%;
+}
+
 #alert-minimo {
     z-index: 5;
 }

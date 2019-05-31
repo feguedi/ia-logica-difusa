@@ -30,10 +30,36 @@
                 <div class="col">
                     <div class="card d-flex">
                         <div class="card-body align-content-center align-items-center">
-                            <h4 class="card-title text-center">Diagnóstico de enfermedades de trastorno alimenticio aplicando lógica
+                            <h4 class="card-title">Diagnóstico de enfermedades de trastorno alimenticio aplicando lógica
                                 difusa</h4>
-                            <p class="card-text text-center">El siguiente sistema pretende
-                                auxiliar en la integración de un diagnóstico aportando una probabilidad de certeza</p>
+                            <p class="card-text">El siguiente sistema pretende
+                                auxiliar en la integración de un diagnóstico aportando una probabilidad de certeza.</p>
+                            <p class="card-text">Los dos tipos de diagnósticos que maneja el sistema son el diagnóstico
+                                general y el diagnóstico específico.</p>
+                            <div class="container" style="padding-top: 5%; padding-bottom: 5%;">
+                                <div class="row">
+                                    <div class="col col-lg-6 col-md-6 col-sm-6">
+                                        <div class="card d-flex">
+                                            <div class="card-body align-content-center align-items-center">
+                                                <h5 class="card-title">Diagnóstico general</h5>
+                                                <p class="card-text">El diagnóstico general busca obtener los datos del
+                                                    usuario de acuerdo a la intensidad de los síntomas que presenta el
+                                                    usuario.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-6 col-md-6 col-sm-6">
+                                        <div class="card d-flex">
+                                            <div class="card-body align-content-center align-items-center">
+                                                <h5 class="card-title">Diagnóstico específico</h5>
+                                                <p class="card-text">El diagnóstico específico compara la intensidad de
+                                                    los síntomas que presenta el usuario con las enfermedades que él
+                                                    cree poder tener.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn btn-info" id="boton-manual">Ok</button>
                             </div>
@@ -83,7 +109,7 @@
                             <button class="btn btn-menu" id="boton-menu-general">Menú</button>
                             <h1 class="card-title">Diagnóstico general</h1>
                             <p class="card-text">
-                                De acuerdo a los siguientes síntomas, escoja la intensidad en una escala del 1 al 10
+                                De acuerdo a los siguientes síntomas, escoja la intensidad en una escala del 0 al 9
                             </p>
                             <div class="general-container">
                                 <div id="sintomas-container-general" class="sintomas-container list-group"></div>
@@ -119,8 +145,8 @@
                         <div class="card-body">
 
                             <div class="especifico-container" id="especifico-container-sintomas">
-                                <p class="mensaje-especifico">Seleccione la intensidad con la que siente los síntomas
-                                    que aparecen a continuación:</p>
+                                <p class="mensaje-especifico">De acuerdo a los siguientes síntomas, escoja la intensidad
+                                    en una escala del 0 al 9:</p>
                                 <div id="sintomas-container-especifico" class="sintomas-container"></div>
                             </div>
 
