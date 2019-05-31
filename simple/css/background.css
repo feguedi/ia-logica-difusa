@@ -1,11 +1,11 @@
 body, html {
     background: linear-gradient(223deg, #3f38a3, #8fb8fc, #05d2dd);
     /* background: linear-gradient(223deg, #05F2DB, #6B92FB); */
-    background-size: 600% 600%;
-    -webkit-animation: Movement 35s ease infinite;
-    -moz-animation: Movement 35s ease infinite;
-    -o-animation: Movement 35s ease infinite;
-    animation: Movement 35s ease infinite;
+    background-size: 300% 300%;
+    /* -webkit-animation: Movement 35s ease infinite; */
+    /* -moz-animation: Movement 35s ease infinite; */
+    /* -o-animation: Movement 35s ease infinite; */
+    /* animation: Movement 35s ease infinite; */
 }
 
 @keyframes Movement {
