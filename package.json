@@ -6,8 +6,5 @@
   "repository": "git+https://github.com/feguedi/ia-logica-difusa.git",
   "author": "Ixe Fernández",
   "license": "ISC",
-  "private": true,
-  "dependencies": {
-    "create-react-app": "^3.0.1"
-  }
+  "private": true
 }

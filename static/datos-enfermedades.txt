@@ -1,0 +1,205 @@
+# diabetes: 
+hambre: 6
+cantidad de alimento: 7
+somnolencia en el dia: 2
+sobrepeso: 6
+cansancio: 4
+ejercicio: 2
+insomnio: 1
+falta de concentración: 4
+disminución de la memoria: 3
+disminución de agudeza auditiva: 4
+disminución de agudeza visual: 4
+daño dental: 4
+fracturas, esguinces, torceduras: 0
+lumbalgia, dolor de rodillas: 3
+friolento: 1
+polineuritis: 3
+caída de cabello: 4
+aparicion de canas: 4
+aparición de arrugas faciales: 3
+
+# anorexia nerviosa:
+hambre: 4
+cantidad de alimento: 2
+somnolencia en el dia: 7
+sobrepeso: 1
+cansancio: 7
+ejercicio: 0
+insomnio: 7
+falta de concentración: 8
+disminución de la memoria: 9
+disminución de agudeza auditiva: 8
+disminución de agudeza visual: 8
+daño dental: 6
+fracturas, esguinces, torceduras: 8
+lumbalgia, dolor de rodillas: 6
+friolento: 8
+polineuritis: 4
+caída de cabello: 9
+aparicion de canas: 9
+aparición de arrugas faciales: 8
+
+# bulimia
+hambre: 8
+cantidad de alimento: 8
+somnolencia en el dia: 7
+sobrepeso: 1
+cansancio: 8
+ejercicio: 0
+insomnio: 7
+falta de concentración: 8
+disminución de la memoria: 8
+disminución de agudeza auditiva: 8
+disminución de agudeza visual: 8
+daño dental: 8
+fracturas, esguinces, torceduras: 9
+lumbalgia, dolor de rodillas: 8
+friolento: 8
+polineuritis: 8
+caída de cabello: 8
+aparicion de canas: 8
+aparición de arrugas faciales: 8
+
+# hipertensión arterial
+hambre: 6
+cantidad de alimento: 6
+somnolencia en el dia: 7
+sobrepeso: 7
+cansancio: 1
+ejercicio: 3
+insomnio: 9
+falta de concentración: 4
+disminución de la memoria: 4
+disminución de agudeza auditiva: 4
+disminución de agudeza visual: 4
+daño dental: 4
+fracturas, esguinces, torceduras: 0
+lumbalgia, dolor de rodillas: 4
+friolento: 4
+polineuritis: 3
+caída de cabello: 4
+aparicion de canas: 4
+aparición de arrugas faciales: 4
+
+# fatiga crónica
+hambre: 6
+cantidad de alimento: 6
+somnolencia en el dia: 7
+sobrepeso: 7
+cansancio: 9
+ejercicio: 0
+insomnio: 5
+falta de concentración: 7
+disminución de la memoria: 5
+disminución de agudeza auditiva: 5
+disminución de agudeza visual: 4
+daño dental: 5
+fracturas, esguinces, torceduras: 3
+lumbalgia, dolor de rodillas: 7
+friolento: 7
+polineuritis: 5
+caída de cabello: 9
+aparicion de canas: 9
+aparición de arrugas faciales: 5
+
+# artritis
+hambre: 4
+cantidad de alimento: 4
+somnolencia en el dia: 5
+sobrepeso: 6
+cansancio: 8
+ejercicio: 2
+insomnio: 5
+falta de concentración: 1
+disminución de la memoria: 1
+disminución de agudeza auditiva: 3
+disminución de agudeza visual: 3
+daño dental: 7
+fracturas, esguinces, torceduras: 3
+lumbalgia, dolor de rodillas: 7
+friolento: 7
+polineuritis: 4
+caída de cabello: 7
+aparicion de canas: 7
+aparición de arrugas faciales: 3
+
+# osteoporosis
+hambre: 5
+cantidad de alimento: 6
+somnolencia en el dia: 4
+sobrepeso: 5
+cansancio: 0
+ejercicio: 2
+insomnio: 0
+falta de concentración: 0
+disminución de la memoria: 1
+disminución de agudeza auditiva: 3
+disminución de agudeza visual: 3
+daño dental: 3
+fracturas, esguinces, torceduras: 9
+lumbalgia, dolor de rodillas: 4
+friolento: 5
+polineuritis: 3
+caída de cabello: 5
+aparicion de canas: 4
+aparición de arrugas faciales: 1
+
+# obesidad
+hambre: 7
+cantidad de alimento: 8
+somnolencia en el dia: 8
+sobrepeso: 8
+cansancio: 7
+ejercicio: 1
+insomnio: 7
+falta de concentración: 5
+disminución de la memoria: 3
+disminución de agudeza auditiva: 5
+disminución de agudeza visual: 4
+daño dental: 3
+fracturas, esguinces, torceduras: 3
+lumbalgia, dolor de rodillas: 5
+friolento: 4
+polineuritis: 3
+caída de cabello: 3
+aparicion de canas: 3
+aparición de arrugas faciales: 1
+
+# envejecimiento precoz
+hambre: 7
+cantidad de alimento: 7
+somnolencia en el dia: 8
+sobrepeso: 5
+cansancio: 8
+ejercicio: 0
+insomnio: 8
+falta de concentración: 8
+disminución de la memoria: 7
+disminución de agudeza auditiva: 7
+disminución de agudeza visual: 7
+daño dental: 3
+fracturas, esguinces, torceduras: 1
+lumbalgia, dolor de rodillas: 5
+friolento: 5
+polineuritis: 5
+caída de cabello: 3
+aparicion de canas: 3
+aparición de arrugas faciales: 7
+
+Somnolencia: "Se queda dormido en el día en cuanto puede hacerlo",
+Sobrepeso: "Más del 25% del peso ideal",
+Cansancio: "Fácil agotamiento, tristeza, desánimo",
+Ejercicio: "Mínimo 2 veces por semana, 1 hora",
+Insomnio: "Dificultad para iniciar sueño. Sueño no constante",
+Fa-concentracion: "Lentitud en análisis, distraído, ansiedad",
+dis-memoria: "Olvidos, dificultad para recordar, debe volver a leer lo revisado, baja retención",
+dis-visual: "Requiere lentes",
+dis-auditiva: "",
+dental: "Caries. Ruptura parcial de un diente",
+fracturas: "",
+lumbalgia: "Sin causa aparente de dolor. Debilidad de lumbares",
+friolento: "Se tarda en entrar en calor",
+polineuritis: "Dolores, tics, sobresaltos, sensaciones de frío o de calor, o de hormigueo",
+cabello: "Sin importar la herencia",
+canas: "Sin importar la herencia",

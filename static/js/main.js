@@ -5,6 +5,9 @@ let generalContent = $('#general-content');
 let especificoContent = $('#especifico-content');
 let resultadoContent = $('#resultados-content');
 
+let _alto = 0;
+let _ancho = 0;
+
 let enfChkd = 0;
 
 const umbral = 10;
@@ -46,6 +49,9 @@ $('.enfermedad-checkbox').click(() => {
 });
 
 const main = () => {
+    _alto = $(document).height();
+    _ancho = $(document).width();
+
     setTimeout(() => {
         cambiarEstadoElemento(bienvenido);
         cambiarEstadoElemento(manual);
