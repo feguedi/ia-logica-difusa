@@ -4,8 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { ThemeProvider, ColorModeProvider } from '@chakra-ui/core'
 import NavBar from './components/NavBar'
 import Main from './layouts/Main'
-import Especifico from './layouts/Especifico'
-import General from './layouts/General'
+import Diagnostico from './layouts/Diagnostico'
 import Theme from './theme'
 
 function App() {
@@ -16,8 +15,8 @@ function App() {
                     <NavBar />
                     <Switch>
                         <Route path="/" component={ Main } exact />
-                        <Route path="/general" component={ General } exact />
-                        <Route path="/especifico" component={ Especifico } exact />
+                        <Route path="/general" component={ Diagnostico } exact />
+                        <Route path="/especifico" component={ Diagnostico } exact />
                     </Switch>
                 </BrowserRouter>
             </ColorModeProvider>
