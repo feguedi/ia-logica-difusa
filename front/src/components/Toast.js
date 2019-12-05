@@ -3,7 +3,7 @@ import { Box, useToast, Button, useColorMode } from '@chakra-ui/core'
 
 // https://codesandbox.io/s/priceless-goldstine-0pklw
 
-export default ({ title, description, status, bg, color }) => {
+export default ({ title, description, status, bg, color, isDisabled }) => {
     let toast = useToast()
     const { colorMode } = useColorMode()
 
@@ -28,6 +28,7 @@ export default ({ title, description, status, bg, color }) => {
             _hover={ colorMode === "light" ? { boxShadow: "0px 3px 10px #212121dd" } : { boxShadow: "" } } 
             boxShadow={ colorMode === "light" ? "0px 3px 20px #212121dd" : "0" }
             textDecoration="none"
+            isDisabled={ isDisabled }
         >
             Evaluar
         </Button>

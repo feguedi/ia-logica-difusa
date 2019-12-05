@@ -1,22 +1,24 @@
 import React from 'react'
-import { useColorMode, Checkbox, Tooltip } from '@chakra-ui/core'
+import { Checkbox, Tooltip } from '@chakra-ui/core'
 
-export default ({ name, key, description }) => {
-    const { colorMode } = useColorMode()
-    const bgColor = { light: "grey.50", dark: "blue grey.900" }
-    const color = { light: "#000", dark: "grey.50" }
-
+export default ({ nombre, key, descripcion }) => {
     let propsTooltip = { 
-        placement: "left-end",
-        label: description
+        placement: "right-end",
+        label: descripcion
     }
 
-    if (description)
+    if (descripcion)
         return (
-            <Tooltip hasArrow { ...propsTooltip }>
-                <Checkbox value={ name } key={ key } bg={ bgColor[colorMode] } color={ color[colorMode] } />
-            </Tooltip>
+            <Checkbox value={ key } key={ key } rounded="xl">
+                <Tooltip hasArrow { ...propsTooltip }>
+                    { nombre }
+                </Tooltip>
+            </Checkbox>
         )
 
-    return <Checkbox value={ name } key={ key } bg={ bgColor[colorMode] } color={ color[colorMode] } />
+    return (
+        <Checkbox value={ key } key={ key } rounded="xl">
+            { nombre }
+        </Checkbox>
+    )
 }

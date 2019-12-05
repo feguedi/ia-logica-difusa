@@ -12,7 +12,7 @@ export const ReactInputRange = ({ name, value }) => (
     </Flex>
 )
 
-export default ({ name, key, description }) => {
+export default ({ nombre, key, descripcion }) => {
     const [state, setState] = useState({ value: 0 })
     const { colorMode } = useColorMode()
     const bgSlider = {light: "grey.500", dark: "grey.300"}
@@ -47,17 +47,19 @@ export default ({ name, key, description }) => {
 
     let propsTooltip = { 
         placement: "left-end",
-        label: description
+        label: descripcion
     }
     let text
-    if (description)
+    if (descripcion)
         text = (
-            <Tooltip hasArrow { ...propsTooltip }>
-                <Text w="100%">{ name }</Text>
-            </Tooltip>
+            <Text w="100%">
+                <Tooltip hasArrow { ...propsTooltip }>
+                    { nombre }
+                </Tooltip>
+            </Text>
         )
     else
-        text = <Text w="100%">{ name }</Text>
+        text = <Text w="100%">{ nombre }</Text>
 
     return (
         <Stack>
@@ -71,7 +73,6 @@ export default ({ name, key, description }) => {
                 id={ key }
                 max={ 10 } step={ 1 } defaultValue={ 0 } 
                 onChange={value => { 
-                    console.log(`Valores del slider ${ name }: ${ value }`)
                     setState({ value })
             }}>
                 <SliderTrack bg={ bgSlider[colorMode] } />

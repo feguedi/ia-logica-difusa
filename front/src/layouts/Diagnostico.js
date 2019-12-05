@@ -12,35 +12,32 @@ export default class Diagnostico extends Component {
         super(props)
         let title = this.props.location.pathname
         title = title.slice(1)
-        console.log(`Diagnóstico ${ title }`)
-        this.state = { enfermedades: [], sintomas: [], title,
+        this.state = { title,
             error: false, isLoading: true, errMsg: ""
         }
         document.title = `Lógica Difusa - Diagnóstico ${ this.state.title }`
-    }
-
-    componentDidMount() {
-        this.setState({ enfermedades: Enfermedades, sintomas: Sintomas, isLoading: false })
+        setTimeout(() => {
+            this.setState({ isLoading: false })
+        }, 400)
     }
 
     render() {
-        const { title, isLoading, errMsg, error, enfermedades, sintomas } = this.state
+        const { title, isLoading, errMsg, error } = this.state
 
         if (isLoading)
-            return (<Loading />)
+            return (<Loading height={ document.getElementsByTagName('html')[0].scrollHeight - 72 } />)
 
         if (error) 
             return (<Error message={ errMsg } />)
 
-        const enfArr = []
-        for (const enfermedad of enfermedades) {
-            console.log(`Datos de ${ enfermedad.nombre } - ${ JSON.stringify(enfermedad) }`)
-            enfArr.push(<SintomaRange name={ enfermedad.nombre } key={ enfermedad["_id"] } description={ enfermedad.descripcion } />)
+        const sintArr = []
+        for (const sintoma of Sintomas) {
+            sintArr.push(<SintomaRange nombre={ sintoma.nombre } key={ sintoma["_id"] } descripcion={ sintoma.descripcion } />)
         }
 
-        const sintArr = []
-        for (const sintoma of sintomas) {
-            sintArr.push(<EnfermedadCheckbox name={ sintoma.nombre } key={ sintoma["_id"] } description={ sintoma.descripcion } />)
+        const enfArr = []
+        for (const enfermedad of Enfermedades) {
+            enfArr.push(<EnfermedadCheckbox nombre={ enfermedad.nombre } key={ enfermedad["_id"] } descripcion={ enfermedad.descripcion } />)
         }
 
         switch (title) {
@@ -50,7 +47,7 @@ export default class Diagnostico extends Component {
                 )
                 case 'especifico':
                 return (
-                    <Especifico enfArr={ enfArr } sintArr={ sintArr } />
+                    <Especifico sintArr={ sintArr } enfArr={ enfArr } />
                 )
             default:
                 break;
