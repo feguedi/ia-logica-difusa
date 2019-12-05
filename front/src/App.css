@@ -28,11 +28,20 @@
   src: url("/fonts/Montserrat-Light.ttf");
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: "Segoe UI";
 }
 
 .root {
+  /* height: 100%; */
+  width: 100%;
+}
+
+.container {
   max-width: 1200px;
 }
 

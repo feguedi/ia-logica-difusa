@@ -10,6 +10,7 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
+        // this.setState({ height: "100%" })
         this.setState({ height: document.getElementsByTagName('html')[0].scrollHeight - 72 })
     }
 

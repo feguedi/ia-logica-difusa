@@ -1,12 +1,11 @@
 import React from 'react'
-import { Button, Text, useColorMode, Flex, useTheme } from '@chakra-ui/core'
+import { Button, Text, useColorMode, Flex } from '@chakra-ui/core'
 import FontAwesome from 'react-fontawesome'
 
 export default () => {
     const { colorMode, toggleColorMode } = useColorMode()
-    const Theme = useTheme()
-    const bgColor = { light: Theme.colors["grey"][50], dark: Theme.colors["blue grey"][900] }
-    const color = { light: "#000", dark: Theme.colors["grey"][50] }
+    const bgColor = { light: "grey.50", dark: "blue grey.900" }
+    const color = { light: "#000", dark: "grey.50" }
 
     const sun = <FontAwesome name="sun-o" size="2x" />
     const moon = <FontAwesome name="moon-o" size="2x" />

@@ -1,5 +1,5 @@
 export const Enfermedades = [{
-    "id": "diabetes",
+    "_id": "diabetes",
     "nombre": "Diabetes mellitus (inicial)",
     "descripcion": "Primeros 2 años sin diagnóstico",
     "recomendacion": "",
@@ -26,7 +26,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "anorexia",
+    "_id": "anorexia",
     "nombre": "Anorexia nerviosa",
     "descripcion": "Adelgaza demasiado, pero no come lo suficiente porque se siente gorda",
     "recomendacion": "",
@@ -53,7 +53,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "bulimia",
+    "_id": "bulimia",
     "nombre": "Bulimia",
     "descripcion": "Come mucha comida, sobre todo productos calóricos, luego se provoca el vómito",
     "recomendacion": "",
@@ -80,7 +80,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "hipertension",
+    "_id": "hipertension",
     "nombre": "Hipertensión arterial",
     "descripcion": "3 años posteriores al primer diagnóstico",
     "recomendacion": "",
@@ -107,7 +107,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "fatiga",
+    "_id": "fatiga",
     "nombre": "Fatiga crónica",
     "descripcion": "",
     "recomendacion": "",
@@ -134,7 +134,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "artritis",
+    "_id": "artritis",
     "nombre": "Artritis",
     "descripcion": "Dolores - inflamación articular",
     "recomendacion": "",
@@ -161,7 +161,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "osteoporosis",
+    "_id": "osteoporosis",
     "nombre": "Osteoporosis",
     "descripcion": "Tres años posteriores al primer diagnóstico",
     "recomendacion": "",
@@ -188,7 +188,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "obesidad",
+    "_id": "obesidad",
     "nombre": "Obesidad",
     "descripcion": "Rebasa 30% del peso recomendado",
     "recomendacion": "",
@@ -215,7 +215,7 @@ export const Enfermedades = [{
     }
 },
 {
-    "id": "envejecimiento",
+    "_id": "envejecimiento",
     "nombre": "Envejecimiento precoz",
     "descripcion": "Nivel de salud 30 años mayor a la edad biológica",
     "recomendacion": "",
@@ -244,97 +244,97 @@ export const Enfermedades = [{
 ]
 
 export const Sintomas = [{
-    "id": "hambre",
+    "_id": "hambre",
     "nombre": "Hambre",
     "descripcion": ""
 },
 {
-    "id": "cant-alimento",
+    "_id": "cant-alimento",
     "nombre": "Cantidad de alimento",
     "descripcion": ""
 },
 {
-    "id": "somnolencia",
+    "_id": "somnolencia",
     "nombre": "Somnolencia en el día",
     "descripcion": "Se queda dormido en el día en cuanto puede hacerlo"
 },
 {
-    "id": "sobrepeso",
+    "_id": "sobrepeso",
     "nombre": "Sobrepeso",
     "descripcion": "Más del 25% del peso ideal"
 },
 {
-    "id": "cansancio",
+    "_id": "cansancio",
     "nombre": "Cansancio",
     "descripcion": "Fácil agotamiento, tristeza, desánimo"
 },
 {
-    "id": "ejercicio",
+    "_id": "ejercicio",
     "nombre": "Ejercicio",
     "descripcion": "Mínimo 2 veces por semana, 1 hora"
 },
 {
-    "id": "insomnio",
+    "_id": "insomnio",
     "nombre": "Insomnio",
     "descripcion": "Dificultad para iniciar sueño. Sueño no constante"
 },
 {
-    "id": "fa-concentracion",
+    "_id": "fa-concentracion",
     "nombre": "Falta de concentración",
     "descripcion": "Lentitud en análisis, distraído, ansiedad"
 },
 {
-    "id": "dis-memoria",
+    "_id": "dis-memoria",
     "nombre": "Disminución de la memoria",
     "descripcion": "Olvidos, dificultad para recordar, debe volver a leer lo revisado, baja retención"
 },
 {
-    "id": "dis-visual",
+    "_id": "dis-visual",
     "nombre": "Disminución de agudeza visual",
     "descripcion": "Requiere lentes"
 },
 {
-    "id": "dis-auditiva",
+    "_id": "dis-auditiva",
     "nombre": "Disminución de agudeza auditiva",
     "descripcion": ""
 },
 {
-    "id": "dental",
+    "_id": "dental",
     "nombre": "Daño dental",
     "descripcion": "Caries. Ruptura parcial de un diente"
 },
 {
-    "id": "fracturas",
+    "_id": "fracturas",
     "nombre": "Fracturas, esguinces, torceduras",
     "descripcion": ""
 },
 {
-    "id": "lumbalgia",
+    "_id": "lumbalgia",
     "nombre": "Lumbalgia, dolor de rodillas",
     "descripcion": "Sin causa aparente de dolor. Debilidad de lumbares"
 },
 {
-    "id": "friolento",
+    "_id": "friolento",
     "nombre": "Friolento",
     "descripcion": "Se tarda en entrar en calor"
 },
 {
-    "id": "polineuritis",
+    "_id": "polineuritis",
     "nombre": "Polineuritis",
     "descripcion": "Dolores, tics, sobresaltos, sensaciones de frío o de calor, o de hormigueo"
 },
 {
-    "id": "cabello",
+    "_id": "cabello",
     "nombre": "Caída de cabello",
     "descripcion": "Sin importar la herencia"
 },
 {
-    "id": "ap-canas",
+    "_id": "ap-canas",
     "nombre": "Aparición de canas",
     "descripcion": "Sin importar la herencia"
 },
 {
-    "id": "ap-arrugas",
+    "_id": "ap-arrugas",
     "nombre": "Aparición de arrugas faciales",
     "descripcion": ""
 }

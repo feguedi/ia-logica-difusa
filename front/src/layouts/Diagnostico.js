@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import EnfermedadRange from '../components/EnfermedadRange'
-import SintomaCheckbox from '../components/SintomaCheckbox'
+import SintomaRange from '../components/EnfermedadRange'
+import EnfermedadCheckbox from '../components/SintomaCheckbox'
 import General from '../components/General'
 import Especifico from '../components/Especifico'
 import { Enfermedades, Sintomas } from '../data'
@@ -12,6 +12,7 @@ export default class Diagnostico extends Component {
         super(props)
         let title = this.props.location.pathname
         title = title.slice(1)
+        console.log(`Diagnóstico ${ title }`)
         this.state = { enfermedades: [], sintomas: [], title,
             error: false, isLoading: true, errMsg: ""
         }
@@ -33,20 +34,21 @@ export default class Diagnostico extends Component {
 
         const enfArr = []
         for (const enfermedad of enfermedades) {
-            enfArr.push(<EnfermedadRange name={ enfermedad.nombre } key={ enfermedad.id } />)
+            console.log(`Datos de ${ enfermedad.nombre } - ${ JSON.stringify(enfermedad) }`)
+            enfArr.push(<SintomaRange name={ enfermedad.nombre } key={ enfermedad["_id"] } description={ enfermedad.descripcion } />)
         }
 
         const sintArr = []
         for (const sintoma of sintomas) {
-            sintArr.push(<SintomaCheckbox name={ sintoma.nombre } key={ sintoma.id } />)
+            sintArr.push(<EnfermedadCheckbox name={ sintoma.nombre } key={ sintoma["_id"] } description={ sintoma.descripcion } />)
         }
 
         switch (title) {
             case 'general':
                 return (
-                    <General enfArr={ enfArr } />
+                    <General sintArr={ sintArr } />
                 )
-            case 'específico':
+                case 'especifico':
                 return (
                     <Especifico enfArr={ enfArr } sintArr={ sintArr } />
                 )
