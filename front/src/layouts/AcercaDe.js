@@ -5,7 +5,7 @@ import { Flex } from '@chakra-ui/core'
 export default class AcercaDe extends Component {
     render() {
         return (
-            <Flex h="100%">
+            <Flex h={ document.getElementsByTagName('html')[0].scrollHeight - 72 }>
                 <AcercaDeInfo />
             </Flex>
         )

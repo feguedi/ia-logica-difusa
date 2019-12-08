@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
-import SintomaRange from '../components/EnfermedadRange'
-import EnfermedadCheckbox from '../components/SintomaCheckbox'
 import General from '../components/General'
 import Especifico from '../components/Especifico'
-import { Enfermedades, Sintomas } from '../data'
 import { Error } from './Error'
 import { Loading } from './Loading'
 
@@ -30,24 +27,14 @@ export default class Diagnostico extends Component {
         if (error) 
             return (<Error message={ errMsg } />)
 
-        const sintArr = []
-        for (const sintoma of Sintomas) {
-            sintArr.push(<SintomaRange nombre={ sintoma.nombre } key={ sintoma["_id"] } descripcion={ sintoma.descripcion } />)
-        }
-
-        const enfArr = []
-        for (const enfermedad of Enfermedades) {
-            enfArr.push(<EnfermedadCheckbox nombre={ enfermedad.nombre } key={ enfermedad["_id"] } descripcion={ enfermedad.descripcion } />)
-        }
-
         switch (title) {
             case 'general':
                 return (
-                    <General sintArr={ sintArr } />
+                    <General/>
                 )
                 case 'especifico':
                 return (
-                    <Especifico sintArr={ sintArr } enfArr={ enfArr } />
+                    <Especifico/>
                 )
             default:
                 break;

@@ -13,7 +13,7 @@ export default () => {
     return (
         <Flex bg={ bgColor[colorMode] } px={ 5 } py={ 4 }>
             <Flex className="navBar" justifyContent="space-between" autoRows="auto" flexDirection="row" w="100%">
-                <Text as="a" href="/" style={{ textDecoration: 'none' }} color={ color[colorMode] } fontSize="24px" fontWeight="bold">Lógica difusa</Text>
+                <Text className="navBar-title" as="a" href="/" style={{ textDecoration: 'none' }} color={ color[colorMode] } fontSize="24px" fontWeight="bold">Lógica difusa</Text>
                 <Flex justifyContent="center" spacing={ 6 } alignItems="center">
                     <Text as="a" href="/acerca-de" style={{ textDecoration: 'none' }} color={ color[colorMode] } px={ 2 }>Acerca de</Text>
                     <Button borderWidth="0" onClick={ toggleColorMode } variant="ghost" variantColor="white" color={ color[colorMode] }>{ colorMode === 'light' ? moon : sun }</Button>

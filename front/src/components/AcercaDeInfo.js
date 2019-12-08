@@ -9,7 +9,7 @@ export default () => {
     const color = { light: "#000", dark: "grey.50" }
 
     return (
-        <Flex flexDirection="column" bg={ bgColor[colorMode] } color={ color[colorMode] } w="100%" h="100%">
+        <Flex flexDirection="column" bg={ bgColor[colorMode] } color={ color[colorMode] } px="1.75rem" w="100%" h="100%">
             <Heading as="h2">Acerca de</Heading>
             <Text>Proyecto presentado para la materia de Inteligencia Artificial impartida por la Dra. Sandra Canchola en la Facultad de Informática de la Universidad Autónoma de Querétaro.</Text>
             <Box w="100%" justifyContent="center" alignItems="center" alignContent="center">

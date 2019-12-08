@@ -1,15 +1,28 @@
 import React from 'react'
 import { Box, Flex, Stack, useColorMode, Heading, CheckboxGroup } from '@chakra-ui/core'
+import EnfermedadCheckbox from './SintomaCheckbox'
+import SintomaRange from './EnfermedadRange'
+import { Enfermedades, Sintomas } from '../data'
 import Toast from '../components/Toast'
 
-export default ({ sintArr, enfArr }) => {
+export default () => {
     const { colorMode } = useColorMode()
 
     const bgColor = { light: "grey.50", dark: "blue grey.900" }
     const color = { light: "#000", dark: "grey.50" }
 
-    const verResultados = () => {
+    const sintArr = []
+    for (const sintoma of Sintomas) {
+        sintArr.push(<SintomaRange nombre={ sintoma.nombre } key={ sintoma["_id"] } descripcion={ sintoma.descripcion } />)
+    }
 
+    const enfArr = []
+    for (const enfermedad of Enfermedades) {
+        enfArr.push(<EnfermedadCheckbox nombre={ enfermedad.nombre } key={ enfermedad["_id"] } descripcion={ enfermedad.descripcion } />)
+    }
+
+    const verResultados = () => {
+        
     }
 
     const isDisabled = () => {

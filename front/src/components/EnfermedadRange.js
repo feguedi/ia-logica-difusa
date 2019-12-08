@@ -1,18 +1,7 @@
 import React, { useState } from 'react'
-import { Flex, Box, Badge, Text, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Stack, Tooltip, useColorMode } from '@chakra-ui/core'
-import InputRange from 'react-input-range'
+import { Flex, Badge, Text, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Stack, Tooltip, useColorMode } from '@chakra-ui/core'
 
-export const ReactInputRange = ({ name, value }) => (
-    <Flex flexDirection="column">
-        <Box flexDirection="row" justifyContent="space-between" alignItems="center">
-            <Text>{ name }</Text>
-            <Badge rounded="full" px="2" variantColor="tomato">{ value }</Badge>
-        </Box>
-        <InputRange minValue={ 0 } maxValue={ 10 } value={ value } />
-    </Flex>
-)
-
-export default ({ nombre, key, descripcion }) => {
+export default ({ nombre, key, descripcion, onChangeSlider }) => {
     const [state, setState] = useState({ value: 0 })
     const { colorMode } = useColorMode()
     const bgSlider = {light: "grey.500", dark: "grey.300"}
@@ -68,12 +57,13 @@ export default ({ nombre, key, descripcion }) => {
                 <Badge bg="danger" rounded="lg" m="auto" color="white">{ state.value }</Badge>
             </Flex>
             <Slider
-                className="enfermedad-range" 
+                className="sintoma-range" 
                 key={ key }
                 id={ key }
                 max={ 10 } step={ 1 } defaultValue={ 0 } 
                 onChange={value => { 
                     setState({ value })
+                    onChangeSlider()
             }}>
                 <SliderTrack bg={ bgSlider[colorMode] } />
                 <SliderFilledTrack bg={ bgTrackFilled } />

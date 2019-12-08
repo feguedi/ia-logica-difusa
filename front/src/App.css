@@ -45,8 +45,8 @@ body {
   max-width: 1200px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Montserrat";
+h1, h2, h3, h4, h5, h6, .navBar-title {
+  font-family: "Montserrat Bold";
 }
 
 .navBar {
